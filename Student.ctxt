@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=Student
+comment0.text=\n\ Student\ class\n\n\ @author\ (Slesha)\n\ @version\ (18/09/2023)\n
+comment1.params=lastName\ firstName\ studentId\ a1Mark\ a2Mark\ a3Mark
+comment1.target=Student(java.lang.String,\ java.lang.String,\ int,\ double,\ double,\ double)
+numComments=2
