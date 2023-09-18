@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 import java.io.*;
 
 /**
@@ -40,6 +39,19 @@ public class Main
             // read first two lines that are headers
             br.readLine();
             br.readLine();
+            
+            while((line = br.readLine()) != null){
+                //Split comma separated student info and store in respective variables
+                String[] studentInfo = line.split(splitBy);
+                String lastName = studentInfo[0];
+                String firstName = studentInfo[1];
+                int studentId = Integer.parseInt(studentInfo[2]);
+                double a1Mark = Double.parseDouble(studentInfo[3]);
+                double a2Mark = Double.parseDouble(studentInfo[4]);
+                double a3Mark = Double.parseDouble(studentInfo[5]);
+                
+                
+            }
         } catch(IOException e){
             e.printStackTrace();
         }
