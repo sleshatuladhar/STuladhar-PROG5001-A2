@@ -50,7 +50,10 @@ public class Main
                 double a2Mark = Double.parseDouble(studentInfo[4]);
                 double a3Mark = Double.parseDouble(studentInfo[5]);
                 
-                
+                // Create new Student object
+                Student student = new Student(lastName, firstName, studentId, a1Mark, a2Mark, a3Mark);
+                //Add object to ArrayList
+                students.add(student);
             }
         } catch(IOException e){
             e.printStackTrace();
