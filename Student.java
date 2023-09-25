@@ -34,4 +34,9 @@ public class Student
     public double getTotalMarks(){
         return this.totalMarks;
     }
+    
+    @Override
+    public String toString(){
+        return "Student ("  + "Last name: " + this.lastName + " First name: " + this.firstName + " Total marks: " + this.totalMarks;
+    }
 }
