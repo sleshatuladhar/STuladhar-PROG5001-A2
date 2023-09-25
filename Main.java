@@ -46,9 +46,23 @@ public class Main
                 String lastName = studentInfo[0];
                 String firstName = studentInfo[1];
                 int studentId = Integer.parseInt(studentInfo[2]);
-                double a1Mark = Double.parseDouble(studentInfo[3]);
-                double a2Mark = Double.parseDouble(studentInfo[4]);
-                double a3Mark = Double.parseDouble(studentInfo[5]);
+                double a1Mark;
+                double a2Mark;
+                double a3Mark;
+                if(studentInfo.length > 3)
+                    a1Mark = Double.parseDouble(studentInfo[3]);
+                else
+                    a1Mark = 0;
+                    
+                if(studentInfo.length > 4)
+                    a2Mark = Double.parseDouble(studentInfo[4]);
+                else
+                    a2Mark = 0;
+                
+                if(studentInfo.length > 5)
+                    a3Mark = Double.parseDouble(studentInfo[5]);
+                else
+                    a3Mark = 0;
                 
                 // Create new Student object
                 Student student = new Student(lastName, firstName, studentId, a1Mark, a2Mark, a3Mark);
