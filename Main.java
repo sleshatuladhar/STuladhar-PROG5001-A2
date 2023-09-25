@@ -46,23 +46,9 @@ public class Main
                 String lastName = studentInfo[0];
                 String firstName = studentInfo[1];
                 int studentId = Integer.parseInt(studentInfo[2]);
-                double a1Mark;
-                double a2Mark;
-                double a3Mark;
-                if(studentInfo.length > 3)
-                    a1Mark = Double.parseDouble(studentInfo[3]);
-                else
-                    a1Mark = 0;
-                    
-                if(studentInfo.length > 4)
-                    a2Mark = Double.parseDouble(studentInfo[4]);
-                else
-                    a2Mark = 0;
-                
-                if(studentInfo.length > 5)
-                    a3Mark = Double.parseDouble(studentInfo[5]);
-                else
-                    a3Mark = 0;
+                double a1Mark = studentInfo.length > 4 ? parseToDouble(studentInfo[3]) : 0;
+                double a2Mark = studentInfo.length > 5 ? parseToDouble(studentInfo[4]) : 0;
+                double a3Mark = studentInfo.length > 6 ? parseToDouble(studentInfo[5]) : 0;
                 
                 // Create new Student object
                 Student student = new Student(lastName, firstName, studentId, a1Mark, a2Mark, a3Mark);
@@ -72,5 +58,12 @@ public class Main
         } catch(IOException e){
             e.printStackTrace();
         }
+    }
+    
+    public static double parseToDouble(String value){
+        if(value.isEmpty())
+            return 0;
+        else
+            return Double.parseDouble(value);
     }
 }

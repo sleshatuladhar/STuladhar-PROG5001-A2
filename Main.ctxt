@@ -8,4 +8,6 @@ comment2.params=args
 comment2.target=void\ main(java.lang.String[])
 comment3.params=fileName\ students
 comment3.target=void\ readFromFile(java.lang.String,\ java.util.ArrayList)
-numComments=4
+comment4.params=value
+comment4.target=double\ parseToDouble(java.lang.String)
+numComments=5
