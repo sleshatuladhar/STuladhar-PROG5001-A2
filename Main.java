@@ -38,6 +38,10 @@ public class Main
         //Get list of students with total marks less than threshold marks
         System.out.println("List of students with total marks less than " + thresholdMarks + ": ");
         filterStudentsByThreshold(students,thresholdMarks);
+        
+        //F4: Get top 5 students with highest total marks
+        System.out.println("Top 5 students with highest total marks: ");
+        getTop5Students(students);
     }
     
     // F1: Read data from file 
@@ -94,6 +98,33 @@ public class Main
             if(student.totalMarks < thresholdMarks){
                 printStudentData(student);
             }
+        }
+    }
+    
+    //F4: Get top 5 students with highest total marks
+    public static void getTop5Students(ArrayList<Student> students) {
+        ArrayList<Student> top5Students = new ArrayList<Student>();
+        for (Student student : students) {
+            //Add first 5 students to array list and then start sorting for top 5
+            if (top5Students.size() < 5) {
+                top5Students.add(student);
+            } else{
+                for (int i = 0; i < 5; i++) {
+                    if (student.totalMarks > top5Students.get(i).totalMarks) {
+                        // Shift existing top student down if current student has higher marks
+                        for (int j = 4; j > i; j--) {
+                            top5Students.set(j, top5Students.get(j-1));
+                        }
+                        top5Students.set(i, student);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Print the top 5 students
+        for (int i = 0; i < 5; i++) {
+            printStudentData(top5Students.get(i));
         }
     }
 }
