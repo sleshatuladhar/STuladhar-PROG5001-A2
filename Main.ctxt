@@ -10,4 +10,6 @@ comment3.params=fileName\ students
 comment3.target=void\ readFromFile(java.lang.String,\ java.util.ArrayList)
 comment4.params=value
 comment4.target=double\ parseToDouble(java.lang.String)
-numComments=5
+comment5.params=student
+comment5.target=void\ printStudentData(Student)
+numComments=6

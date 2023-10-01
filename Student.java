@@ -27,16 +27,26 @@ public class Student
         this.calculateTotalMarks();
     }
     
+    //F2: Calculate total marks of student
     public void calculateTotalMarks(){
         this.totalMarks = this.a1Mark + this.a2Mark + this.a3Mark;
     }
     
+    //Get total marks
     public double getTotalMarks(){
         return this.totalMarks;
     }
     
-    @Override
-    public String toString(){
-        return "Student ("  + "Last name: " + this.lastName + " First name: " + this.firstName + " Total marks: " + this.totalMarks;
+    //F2: Get student data
+    public String getStudentData(){
+        return "Student ("  
+            + "Last name: " + this.lastName 
+            + ", First name: " + this.firstName 
+            + ", Student ID: " + this.studentId 
+            + ", A1: " + this.a1Mark 
+            + ", A2: " + this.a2Mark 
+            + ", A3: " + this.a3Mark 
+            + ", Total marks: " + this.totalMarks 
+            + ")";
     }
 }

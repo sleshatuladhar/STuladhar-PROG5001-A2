@@ -30,7 +30,7 @@ public class Main
         readFromFile(fileName, students);
     }
     
-    // Function to read data from file 
+    // F1: Read data from file 
     public static void readFromFile(String fileName, ArrayList<Student> students){
         String line;
         String splitBy = ",";
@@ -54,16 +54,26 @@ public class Main
                 Student student = new Student(lastName, firstName, studentId, a1Mark, a2Mark, a3Mark);
                 //Add object to ArrayList
                 students.add(student);
+                
+                //Print student data
+                printStudentData(student);
             }
         } catch(IOException e){
             e.printStackTrace();
         }
     }
     
+    
+    //Parse string to double if value is present else return 0
     public static double parseToDouble(String value){
         if(value.isEmpty())
             return 0;
         else
             return Double.parseDouble(value);
+    }
+    
+    //F2: Print student data
+    public static void printStudentData(Student student){
+        System.out.println(student.getStudentData());
     }
 }
