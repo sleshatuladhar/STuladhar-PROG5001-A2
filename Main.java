@@ -21,6 +21,7 @@ public class Main
         Scanner scanner = new Scanner(System.in);
         String fileName;
         ArrayList<Student> students = new ArrayList<Student>();
+        double thresholdMarks;
         
         //Get file name from user
         System.out.println("Enter the file name:");
@@ -28,6 +29,10 @@ public class Main
         
         //Read from file
         readFromFile(fileName, students);
+            
+        //F3: Get threshold marks from user
+        System.out.println("Enter threshold marks:");
+        thresholdMarks = scanner.nextDouble();
     }
     
     // F1: Read data from file 
