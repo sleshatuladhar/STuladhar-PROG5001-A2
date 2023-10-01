@@ -30,22 +30,36 @@ public class Main
         //Read from file
         System.out.println("Reading from file: " + fileName);
         readFromFile(fileName, students);
-            
-        //F3: Get threshold marks from user
-        System.out.println("Enter threshold marks:");
-        thresholdMarks = scanner.nextDouble();
         
-        //Get list of students with total marks less than threshold marks
-        System.out.println("List of students with total marks less than " + thresholdMarks + ": ");
-        filterStudentsByThreshold(students,thresholdMarks);
+        int menuItem;
+        // Show menu and allow user to choose action
+        printMenu();
+        menuItem = scanner.nextInt();
         
-        //F4: Get top 5 students with highest total marks
-        System.out.println("Top 5 students with highest total marks: ");
-        getTop5Students(students);
-        
-        //F4: Get top 5 students with lowest total marks
-        System.out.println("Top 5 students with lowest total marks: ");
-        getLast5Students(students);
+        while(menuItem != 5){
+                if(menuItem == 1){
+                    //Print student data
+                    printStudentData(students);
+                } else if(menuItem == 2){
+                    //F3: Get threshold marks from user
+                    System.out.println("Enter threshold marks:");
+                    thresholdMarks = scanner.nextDouble();
+                    
+                    //Get list of students with total marks less than threshold marks
+                    System.out.println("List of students with total marks less than " + thresholdMarks + ": ");
+                    filterStudentsByThreshold(students,thresholdMarks);
+                } else if(menuItem == 3){
+                    //F4: Get top 5 students with highest total marks
+                    System.out.println("Top 5 students with highest total marks: ");
+                    getTop5Students(students);
+                } else if(menuItem == 4){
+                    //F4: Get top 5 students with lowest total marks
+                    System.out.println("Top 5 students with lowest total marks: ");
+                    getLast5Students(students);
+                }
+                printMenu();
+                menuItem = scanner.nextInt();
+        }  
     }
     
     // F1: Read data from file 
@@ -72,9 +86,6 @@ public class Main
                 Student student = new Student(lastName, firstName, studentId, a1Mark, a2Mark, a3Mark);
                 //Add object to ArrayList
                 students.add(student);
-                
-                //Print student data
-                printStudentData(student);
             }
         } catch(IOException e){
             e.printStackTrace();
@@ -91,18 +102,22 @@ public class Main
     }
     
     //F2: Print student data
-    public static void printStudentData(Student student){
-        System.out.println(student.getStudentData());
+    public static void printStudentData(ArrayList<Student> students){
+        for(Student student : students){
+            System.out.println(student.getStudentData());
+        }
     }
     
     //F3: Print list of students with total marks less than certain threshold
     public static void filterStudentsByThreshold(ArrayList<Student> students, double thresholdMarks){
+        ArrayList<Student> filteredStudents = new ArrayList<Student>();
         for(int i = 0; i < students.size(); i++){
             Student student = students.get(i);
             if(student.totalMarks < thresholdMarks){
-                printStudentData(student);
+                filteredStudents.add(student);
             }
         }
+        printStudentData(filteredStudents);
     }
     
     //F4: Get top 5 students with highest total marks
@@ -127,9 +142,7 @@ public class Main
         }
 
         // Print the top 5 students
-        for (int i = 0; i < 5; i++) {
-            printStudentData(top5Students.get(i));
-        }
+        printStudentData(top5Students);
     }
     
     //F4: Get top 5 students with lowest total marks
@@ -154,8 +167,16 @@ public class Main
         }
 
         // Print the lowest 5 students
-        for (int i = 0; i < 5; i++) {
-            printStudentData(last5Students.get(i));
-        }
+        printStudentData(last5Students);
+    }
+    
+    //Print menu
+    public static void printMenu(){
+        System.out.println("Please select a number: ");
+        System.out.println("1) Display Student's Detail with total Marks");
+        System.out.println("2) Display the list of students with total marks less than a given threshold.");
+        System.out.println("3) Display top 5 students with the highest total marks");
+        System.out.println("4) Display top 5 students with the lowest total marks");
+        System.out.println("5) Exit");
     }
 }
