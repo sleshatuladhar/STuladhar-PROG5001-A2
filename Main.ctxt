@@ -16,4 +16,6 @@ comment6.params=students\ thresholdMarks
 comment6.target=void\ filterStudentsByThreshold(java.util.ArrayList,\ double)
 comment7.params=students
 comment7.target=void\ getTop5Students(java.util.ArrayList)
-numComments=8
+comment8.params=students
+comment8.target=void\ getLast5Students(java.util.ArrayList)
+numComments=9

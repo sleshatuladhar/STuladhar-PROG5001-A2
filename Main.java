@@ -42,6 +42,10 @@ public class Main
         //F4: Get top 5 students with highest total marks
         System.out.println("Top 5 students with highest total marks: ");
         getTop5Students(students);
+        
+        //F4: Get top 5 students with lowest total marks
+        System.out.println("Top 5 students with lowest total marks: ");
+        getLast5Students(students);
     }
     
     // F1: Read data from file 
@@ -125,6 +129,33 @@ public class Main
         // Print the top 5 students
         for (int i = 0; i < 5; i++) {
             printStudentData(top5Students.get(i));
+        }
+    }
+    
+    //F4: Get top 5 students with lowest total marks
+    public static void getLast5Students(ArrayList<Student> students) {
+        ArrayList<Student> last5Students = new ArrayList<Student>();
+        for (Student student : students) {
+            //Add first 5 students to array list and then start sorting for lowest 5
+            if (last5Students.size() < 5) {
+                last5Students.add(student);
+            } else{
+                for (int i = 0; i < 5; i++) {
+                    if (student.totalMarks < last5Students.get(i).totalMarks) {
+                        // Shift existing last student down if current student has lower marks
+                        for (int j = 4; j > i; j--) {
+                            last5Students.set(j, last5Students.get(j-1));
+                        }
+                        last5Students.set(i, student);
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Print the lowest 5 students
+        for (int i = 0; i < 5; i++) {
+            printStudentData(last5Students.get(i));
         }
     }
 }
