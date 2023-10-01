@@ -12,4 +12,6 @@ comment4.params=value
 comment4.target=double\ parseToDouble(java.lang.String)
 comment5.params=student
 comment5.target=void\ printStudentData(Student)
-numComments=6
+comment6.params=students\ thresholdMarks
+comment6.target=void\ filterStudentsByThreshold(java.util.ArrayList,\ double)
+numComments=7

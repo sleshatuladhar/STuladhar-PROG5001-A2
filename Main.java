@@ -28,11 +28,16 @@ public class Main
         fileName = scanner.nextLine();
         
         //Read from file
+        System.out.println("Reading from file: " + fileName);
         readFromFile(fileName, students);
             
         //F3: Get threshold marks from user
         System.out.println("Enter threshold marks:");
         thresholdMarks = scanner.nextDouble();
+        
+        //Get list of students with total marks less than threshold marks
+        System.out.println("List of students with total marks less than " + thresholdMarks + ": ");
+        filterStudentsByThreshold(students,thresholdMarks);
     }
     
     // F1: Read data from file 
@@ -80,5 +85,15 @@ public class Main
     //F2: Print student data
     public static void printStudentData(Student student){
         System.out.println(student.getStudentData());
+    }
+    
+    //F3: Print list of students with total marks less than certain threshold
+    public static void filterStudentsByThreshold(ArrayList<Student> students, double thresholdMarks){
+        for(int i = 0; i < students.size(); i++){
+            Student student = students.get(i);
+            if(student.totalMarks < thresholdMarks){
+                printStudentData(student);
+            }
+        }
     }
 }
